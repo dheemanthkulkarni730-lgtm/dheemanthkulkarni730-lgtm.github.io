@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+<h1>📈 Progress Tracker</h1>
+<p>Track Your Fitness Journey</p>
+</header>
+
+<section>
+
+<h2>Enter Your Progress</h2>
+
+<label>Date</label><br><br>
+<input type="date" id="date"><br><br>
+
+<label>Current Weight (kg)</label><br><br>
+<input type="number" id="weight" placeholder="Enter Weight"><br><br>
+
+<label>Chest (cm)</label><br><br>
+<input type="number" id="chest" placeholder="Chest Measurement"><br><br>
+
+<label>Waist (cm)</label><br><br>
+<input type="number" id="waist" placeholder="Waist Measurement"><br><br>
+
+<label>Arms (cm)</label><br><br>
+<input type="number" id="arms" placeholder="Arm Measurement"><br><br>
+
+<label>Thighs (cm)</label><br><br>
+<input type="number" id="thighs" placeholder="Thigh Measurement"><br><br>
+
+<button onclick="saveProgress()">Save Progress</button>
+
+<h2 id="result"></h2>
+
+</section>
+
+<br>
+
+<a href="workout.html">
+<button>⬅ Back to Workout Hub</button>
+</a>
+
+<br><br>
+
+<script>
+
+function saveProgress(){
+
+let date=document.getElementById("date").value;
+let weight=document.getElementById("weight").value;
+let chest=document.getElementById("chest").value;
+let waist=document.getElementById("waist").value;
+let arms=document.getElementById("arms").value;
+let thighs=document.getElementById("thighs").value;
+
+document.getElementById("result").innerHTML=
+"<h3>✅ Progress Saved</h3>" +
+"<p><strong>Date:</strong> "+date+"</p>" +
+"<p><strong>Weight:</strong> "+weight+" kg</p>" +
+"<p><strong>Chest:</strong> "+chest+" cm</p>" +
+"<p><strong>Waist:</strong> "+waist+" cm</p>" +
+"<p><strong>Arms:</strong> "+arms+" cm</p>" +
+"<p><strong>Thighs:</strong> "+thighs+" cm</p>";
+
+}
+
+</script>
+
+</body>
+</html>
