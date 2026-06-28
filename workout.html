@@ -1,72 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Workouts</title>
-
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #000;
-    color: white;
-}
-
-header {
-    text-align: center;
-    padding: 25px;
-    color: #d4af37;
-    font-size: 30px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    padding: 20px;
-}
+body { background:#000; color:white; font-family:Arial; }
 
 .card {
-    background: #111;
-    border: 1px solid #333;
-    padding: 20px;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
+    background:#111;
+    margin:20px auto;
+    padding:20px;
+    width:80%;
+    border-radius:15px;
+    border:1px solid #333;
+    text-align:center;
 }
 
-.card h3 {
-    color: #d4af37;
-}
+h2 { color:#d4af37; }
 
 button {
-    background: #d4af37;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 20px;
-    cursor: pointer;
+    background:#d4af37;
+    padding:10px 15px;
+    border:none;
+    border-radius:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>🏋️ Workouts</header>
+<h1 style="text-align:center;color:#d4af37;">Workouts</h1>
 
-<div class="container">
+<div class="card">
+<h2>Push Day</h2>
+<button onclick="location.href='push.html'">Open</button>
+</div>
 
-<div class="card"><h3>Push Day</h3><button onclick="location.href='push.html'">Explore</button></div>
-<div class="card"><h3>Pull Day</h3><button onclick="location.href='pull.html'">Explore</button></div>
-<div class="card"><h3>Leg Day</h3><button onclick="location.href='legs.html'">Explore</button></div>
-<div class="card"><h3>Weight Gain</h3><button onclick="location.href='weightgain.html'">Explore</button></div>
-<div class="card"><h3>Weight Loss</h3><button onclick="location.href='weightloss.html'">Explore</button></div>
-<div class="card"><h3>BMI</h3><button onclick="location.href='bmi.html'">Explore</button></div>
-<div class="card"><h3>Calories</h3><button onclick="location.href='calorie.html'">Explore</button></div>
-<div class="card"><h3>Progress</h3><button onclick="location.href='progress.html'">Explore</button></div>
-<div class="card"><h3>Timer</h3><button onclick="location.href='timer.html'">Explore</button></div>
+<div class="card">
+<h2>Pull Day</h2>
+<button onclick="location.href='pull.html'">Open</button>
+</div>
 
+<div class="card">
+<h2>Leg Day</h2>
+<button onclick="location.href='legs.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>Weight Gain</h2>
+<button onclick="location.href='weightgain.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>Weight Loss</h2>
+<button onclick="location.href='weightloss.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>BMI</h2>
+<button onclick="location.href='bmi.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>Calories</h2>
+<button onclick="location.href='calorie.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>Progress</h2>
+<button onclick="location.href='progress.html'">Open</button>
+</div>
+
+<div class="card">
+<h2>Timer</h2>
+<button onclick="location.href='timer.html'">Open</button>
 </div>
 
 </body>
