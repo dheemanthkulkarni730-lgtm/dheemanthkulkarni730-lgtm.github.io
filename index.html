@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fitness App</title>
+<title>Fitness Dashboard</title>
 
 <style>
 body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: Arial;
     background: #0f172a;
     color: white;
 }
@@ -15,47 +15,53 @@ body {
 /* NAV */
 nav {
     background: #1e293b;
-    padding: 10px;
+    padding: 15px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 nav button {
-    padding: 10px;
-    border: none;
     background: #38bdf8;
+    border: none;
+    padding: 10px;
     cursor: pointer;
     border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    transform: scale(1.1);
 }
 
 /* SECTIONS */
 section {
     display: none;
     padding: 20px;
-    animation: fade 0.4s ease;
+    animation: fade 0.6s ease-in-out;
 }
 
 .active {
     display: block;
 }
 
+/* ANIMATION */
 @keyframes fade {
     from {opacity: 0; transform: translateY(10px);}
     to {opacity: 1; transform: translateY(0);}
 }
 
+/* BOX */
 .card {
     background: #1e293b;
     padding: 20px;
     border-radius: 10px;
-    max-width: 400px;
+    width: 300px;
 }
+
 input, select {
-    width: 90%;
     padding: 8px;
-    margin: 5px 0;
+    margin: 5px;
+    width: 90%;
 }
 </style>
 </head>
@@ -68,24 +74,20 @@ input, select {
 <button onclick="show('calorie')">Calories</button>
 <button onclick="show('timer')">Timer</button>
 <button onclick="show('diet')">Diet</button>
-
-<!-- FIXED: correct mapping -->
-<button onclick="show('weightgain')">Weight Gain</button>
-<button onclick="show('legs')">Legs</button>
 </nav>
 
 <!-- HOME -->
 <section id="home" class="active">
-<h1>🏋️ Fitness App</h1>
-<p>All tools in one place</p>
+<h1>🏋️ Fitness Dashboard</h1>
+<p>Track BMI, Calories, Diet & Workout Timer in one place</p>
 </section>
 
 <!-- BMI -->
 <section id="bmi">
 <div class="card">
 <h2>BMI Calculator</h2>
-<input id="w" placeholder="Weight (kg)">
-<input id="h" placeholder="Height (cm)">
+<input id="weight" placeholder="Weight (kg)">
+<input id="height" placeholder="Height (cm)">
 <button onclick="calcBMI()">Calculate</button>
 <p id="bmiResult"></p>
 </div>
@@ -94,9 +96,14 @@ input, select {
 <!-- CALORIES -->
 <section id="calorie">
 <div class="card">
-<h2>Calories</h2>
+<h2>Calorie Calculator</h2>
 <input id="age" placeholder="Age">
-<input id="cw" placeholder="Weight (kg)">
+<input id="calWeight" placeholder="Weight (kg)">
+<select id="activity">
+<option value="1.2">Sedentary</option>
+<option value="1.55">Moderate</option>
+<option value="1.9">Active</option>
+</select>
 <button onclick="calcCal()">Calculate</button>
 <p id="calResult"></p>
 </div>
@@ -105,7 +112,7 @@ input, select {
 <!-- TIMER -->
 <section id="timer">
 <div class="card">
-<h2>Timer</h2>
+<h2>Workout Timer</h2>
 <p id="time">00:00</p>
 <button onclick="startTimer()">Start</button>
 <button onclick="stopTimer()">Stop</button>
@@ -115,35 +122,19 @@ input, select {
 <!-- DIET -->
 <section id="diet">
 <div class="card">
-<h2>Diet</h2>
-<select onchange="diet(this.value)">
-<option value="">Select</option>
-<option value="gain">Weight Gain</option>
+<h2>Diet Plan</h2>
+<select onchange="showDiet(this.value)">
+<option value="">Select Goal</option>
+<option value="bulk">Bulking</option>
 <option value="loss">Weight Loss</option>
 </select>
 <p id="dietPlan"></p>
 </div>
 </section>
 
-<!-- WEIGHT GAIN -->
-<section id="weightgain">
-<div class="card">
-<h2>Weight Gain Plan</h2>
-<p>🍚 Rice, Paneer, Milk, Banana, Nuts, Peanut butter</p>
-</div>
-</section>
-
-<!-- LEGS -->
-<section id="legs">
-<div class="card">
-<h2>Leg Workout</h2>
-<p>🏋️ Squats, Lunges, Leg press, Calf raises</p>
-</div>
-</section>
-
 <script>
 
-/* NAV */
+/* NAVIGATION */
 function show(id){
     document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
     document.getElementById(id).classList.add("active");
@@ -151,22 +142,23 @@ function show(id){
 
 /* BMI */
 function calcBMI(){
-    let w = document.getElementById("w").value;
-    let h = document.getElementById("h").value / 100;
+    let w = document.getElementById("weight").value;
+    let h = document.getElementById("height").value / 100;
     let bmi = w / (h*h);
     document.getElementById("bmiResult").innerText = "BMI: " + bmi.toFixed(2);
 }
 
-/* CALORIES */
+/* CALORIES (basic estimate) */
 function calcCal(){
     let age = document.getElementById("age").value;
-    let w = document.getElementById("cw").value;
+    let w = document.getElementById("calWeight").value;
+    let act = document.getElementById("activity").value;
 
     let bmr = 10*w + 6.25*170 - 5*age + 5;
-    let cal = bmr * 1.5;
+    let calories = bmr * act;
 
     document.getElementById("calResult").innerText =
-    "Calories: " + Math.round(cal);
+    "Daily Calories: " + Math.round(calories);
 }
 
 /* TIMER */
@@ -187,15 +179,15 @@ function stopTimer(){
 }
 
 /* DIET */
-function diet(val){
-    if(val=="gain"){
-        document.getElementById("dietPlan").innerText =
-        "🍚 Eat: Rice, Milk, Paneer, Nuts, Banana";
+function showDiet(type){
+    let plan = "";
+    if(type=="bulk"){
+        plan = "🍚 Rice + Paneer + Banana + Milk + Nuts";
     }
-    if(val=="loss"){
-        document.getElementById("dietPlan").innerText =
-        "🥗 Eat: Salad, Oats, Fruits, Protein foods";
+    if(type=="loss"){
+        plan = "🥗 Salad + Fruits + Oats + Protein foods";
     }
+    document.getElementById("dietPlan").innerText = plan;
 }
 
 </script>
