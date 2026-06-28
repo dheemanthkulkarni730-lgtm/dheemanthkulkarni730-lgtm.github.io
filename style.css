@@ -1,25 +1,28 @@
-:root {
-    --gold: #d4af37;
+body {
+    background: #000;
+    color: white;
+    font-family: Arial;
 }
 
-/* =========================
-   CARD GLOW SYSTEM
-========================= */
+h1, h2, h3 {
+    color: #d4af37;
+}
+
+/* CARD */
 .card {
     background: #111;
     border: 1px solid #333;
-    padding: 22px;
+    padding: 20px;
     border-radius: 15px;
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
-    text-align: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
-/* GOLD SIDE LIGHT SWIPE (CARDS) */
+/* GOLD GLOW */
 .card::before {
     content: "";
     position: absolute;
@@ -30,7 +33,7 @@
     background: linear-gradient(
         120deg,
         transparent,
-        rgba(212, 175, 55, 0.25),
+        rgba(212,175,55,0.25),
         transparent
     );
     transition: 0.7s;
@@ -42,27 +45,23 @@
 
 .card:hover {
     transform: scale(1.05);
-    border-color: var(--gold);
-    box-shadow: 0 0 30px rgba(212,175,55,0.7);
+    box-shadow: 0 0 25px rgba(212,175,55,0.6);
+    border-color: #d4af37;
 }
 
-/* =========================
-   BUTTON GLOW SYSTEM
-========================= */
+/* BUTTON */
 button {
     background: red;
     color: white;
     border: none;
-    padding: 14px 25px;
-    border-radius: 30px;
+    padding: 12px 20px;
+    border-radius: 25px;
     cursor: pointer;
-    font-weight: bold;
     position: relative;
     overflow: hidden;
     transition: 0.3s;
 }
 
-/* GOLD SIDE LIGHT SWIPE (BUTTONS) */
 button::before {
     content: "";
     position: absolute;
@@ -73,7 +72,7 @@ button::before {
     background: linear-gradient(
         120deg,
         transparent,
-        rgba(212, 175, 55, 0.5),
+        rgba(212,175,55,0.5),
         transparent
     );
     transition: 0.6s;
@@ -85,10 +84,4 @@ button:hover::before {
 
 button:hover {
     transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(212,175,55,0.6);
-}
-
-/* TEXT STYLE */
-.card h2, .card h3 {
-    color: var(--gold);
 }
