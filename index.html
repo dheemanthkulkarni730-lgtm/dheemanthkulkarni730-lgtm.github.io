@@ -1,49 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dheemanth's World</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Fitness Dashboard</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: white;
+}
+
+/* NAV */
+nav {
+    background: #1e293b;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav button {
+    background: #38bdf8;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    transform: scale(1.1);
+}
+
+/* SECTIONS */
+section {
+    display: none;
+    padding: 20px;
+    animation: fade 0.6s ease-in-out;
+}
+
+.active {
+    display: block;
+}
+
+/* ANIMATION */
+@keyframes fade {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* BOX */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+input, select {
+    padding: 8px;
+    margin: 5px;
+    width: 90%;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>🔥 Dheemanth's World 🔥</h1>
+<nav>
+<button onclick="show('home')">Home</button>
+<button onclick="show('bmi')">BMI</button>
+<button onclick="show('calorie')">Calories</button>
+<button onclick="show('timer')">Timer</button>
+<button onclick="show('diet')">Diet</button>
+</nav>
 
-    <p>Fitness • Music • Learning</p>
-
-    <a href="#workout">
-        <button>Explore ↓</button>
-    </a>
-</header>
-
-<section id="workout">
-
-    <h2>💪 Workout</h2>
-
-    <p>
-        Workout plans, bulking tips, nutrition and my fitness journey.
-    </p>
-
-    <a href="workout.html">
-        <button>Explore Workouts</button>
-    </a>
-
+<!-- HOME -->
+<section id="home" class="active">
+<h1>🏋️ Fitness Dashboard</h1>
+<p>Track BMI, Calories, Diet & Workout Timer in one place</p>
 </section>
 
-<section id="music">
-
-    <h2>🥁 Music</h2>
-
-    <p>
-        Raags, Taals, Tabla and Hindustani Classical Music.
-    </p>
-
-    <button>Explore Music</button>
-
+<!-- BMI -->
+<section id="bmi">
+<div class="card">
+<h2>BMI Calculator</h2>
+<input id="weight" placeholder="Weight (kg)">
+<input id="height" placeholder="Height (cm)">
+<button onclick="calcBMI()">Calculate</button>
+<p id="bmiResult"></p>
+</div>
 </section>
+
+<!-- CALORIES -->
+<section id="calorie">
+<div class="card">
+<h2>Calorie Calculator</h2>
+<input id="age" placeholder="Age">
+<input id="calWeight" placeholder="Weight (kg)">
+<select id="activity">
+<option value="1.2">Sedentary</option>
+<option value="1.55">Moderate</option>
+<option value="1.9">Active</option>
+</select>
+<button onclick="calcCal()">Calculate</button>
+<p id="calResult"></p>
+</div>
+</section>
+
+<!-- TIMER -->
+<section id="timer">
+<div class="card">
+<h2>Workout Timer</h2>
+<p id="time">00:00</p>
+<button onclick="startTimer()">Start</button>
+<button onclick="stopTimer()">Stop</button>
+</div>
+</section>
+
+<!-- DIET -->
+<section id="diet">
+<div class="card">
+<h2>Diet Plan</h2>
+<select onchange="showDiet(this.value)">
+<option value="">Select Goal</option>
+<option value="bulk">Bulking</option>
+<option value="loss">Weight Loss</option>
+</select>
+<p id="dietPlan"></p>
+</div>
+</section>
+
+<script>
+
+/* NAVIGATION */
+function show(id){
+    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+/* BMI */
+function calcBMI(){
+    let w = document.getElementById("weight").value;
+    let h = document.getElementById("height").value / 100;
+    let bmi = w / (h*h);
+    document.getElementById("bmiResult").innerText = "BMI: " + bmi.toFixed(2);
+}
+
+/* CALORIES (basic estimate) */
+function calcCal(){
+    let age = document.getElementById("age").value;
+    let w = document.getElementById("calWeight").value;
+    let act = document.getElementById("activity").value;
+
+    let bmr = 10*w + 6.25*170 - 5*age + 5;
+    let calories = bmr * act;
+
+    document.getElementById("calResult").innerText =
+    "Daily Calories: " + Math.round(calories);
+}
+
+/* TIMER */
+let t;
+let sec = 0;
+
+function startTimer(){
+    t = setInterval(()=>{
+        sec++;
+        let m = String(Math.floor(sec/60)).padStart(2,'0');
+        let s = String(sec%60).padStart(2,'0');
+        document.getElementById("time").innerText = m+":"+s;
+    },1000);
+}
+
+function stopTimer(){
+    clearInterval(t);
+}
+
+/* DIET */
+function showDiet(type){
+    let plan = "";
+    if(type=="bulk"){
+        plan = "🍚 Rice + Paneer + Banana + Milk + Nuts";
+    }
+    if(type=="loss"){
+        plan = "🥗 Salad + Fruits + Oats + Protein foods";
+    }
+    document.getElementById("dietPlan").innerText = plan;
+}
+
+</script>
 
 </body>
 </html>
