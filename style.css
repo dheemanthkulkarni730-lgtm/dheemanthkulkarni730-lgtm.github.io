@@ -1,103 +1,10 @@
-<style>
-html {
-    scroll-behavior: smooth;
+:root {
+    --gold: #d4af37;
 }
 
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #000;
-    color: white;
-}
-
-/* HERO ANIMATION */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-h1 {
-    font-size: 60px;
-    color: #d4af37;
-    text-shadow: 0 0 25px rgba(212,175,55,0.7);
-    animation: fadeInDown 1s ease;
-}
-
-/* TITLE ANIMATION */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* BUTTON */
-button {
-    background: red;
-    color: white;
-    border: none;
-    padding: 14px 25px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-    transition: 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-/* GOLD SWIPE BUTTON ANIMATION */
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 120%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(212,175,55,0.5),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-button:hover::before {
-    left: 120%;
-}
-
-button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(212,175,55,0.6);
-}
-
-/* SECTION FADE IN */
-section {
-    padding: 80px 20px;
-    animation: fadeUp 1s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* CARD CONTAINER */
+/* =========================
+   CARD GLOW SYSTEM
+========================= */
 .card {
     background: #111;
     border: 1px solid #333;
@@ -112,7 +19,7 @@ section {
     transition: all 0.3s ease;
 }
 
-/* GOLD SIDE LIGHT ANIMATION */
+/* GOLD SIDE LIGHT SWIPE (CARDS) */
 .card::before {
     content: "";
     position: absolute;
@@ -123,7 +30,7 @@ section {
     background: linear-gradient(
         120deg,
         transparent,
-        rgba(212,175,55,0.25),
+        rgba(212, 175, 55, 0.25),
         transparent
     );
     transition: 0.7s;
@@ -133,21 +40,55 @@ section {
     left: 130%;
 }
 
-/* CARD HOVER GLOW */
 .card:hover {
     transform: scale(1.05);
-    border-color: #d4af37;
+    border-color: var(--gold);
     box-shadow: 0 0 30px rgba(212,175,55,0.7);
 }
 
-/* TEXT */
-.card h2 {
-    color: #d4af37;
-    animation: fadeIn 1s ease;
+/* =========================
+   BUTTON GLOW SYSTEM
+========================= */
+button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* GOLD SIDE LIGHT SWIPE (BUTTONS) */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 130%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(212, 175, 55, 0.5),
+        transparent
+    );
+    transition: 0.6s;
 }
-</style>
+
+button:hover::before {
+    left: 130%;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(212,175,55,0.6);
+}
+
+/* TEXT STYLE */
+.card h2, .card h3 {
+    color: var(--gold);
+}
