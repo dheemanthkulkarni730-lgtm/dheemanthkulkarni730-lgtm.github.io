@@ -100,13 +100,126 @@ Explore
 </div>
 
 <!-- SECTION -->
-<div id="section1" style="padding:80px 20px;">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<div class="card">
-<h2>🔥 Workouts</h2>
-<p>Push • Pull • Legs • Weight Gain • Weight Loss</p>
+body {
+    font-family: Arial;
+    background: #000 !important;
+    color: white;
+}
 
-<!-- THIS IS THE REAL FIX -->
+/* GOLD VARIABLE */
+:root {
+    --gold: #d4af37;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(212,175,55,0.6);
+}
+
+/* ================= BUTTON (LOCKED) ================= */
+button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* GOLD SWIPE */
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 130%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(212,175,55,0.5),
+        transparent
+    );
+    transition: 0.6s;
+}
+
+button:hover::before {
+    left: 130%;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px rgba(212,175,55,0.6);
+}
+
+/* ================= CARD (LOCKED) ================= */
+.card {
+    background: #111 !important;
+    border: 1px solid #333;
+    padding: 22px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* GOLD SIDE LIGHT */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 130%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(212,175,55,0.25),
+        transparent
+    );
+    transition: 0.7s;
+}
+
+.card:hover::before {
+    left: 130%;
+}
+
+/* HOVER GLOW */
+.card:hover {
+    transform: scale(1.05);
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(212,175,55,0.7);
+}
+
+/* TEXT */
+.card h2, .card h3 {
+    color: var(--gold);
+}
 <button onclick="location.href='workout.html'">
 Explore Workouts
 </button>
