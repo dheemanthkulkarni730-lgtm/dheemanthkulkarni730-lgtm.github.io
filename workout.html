@@ -1,102 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Hub</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Workouts</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #000;
+    color: white;
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+    color: #d4af37;
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.card h3 {
+    color: #d4af37;
+}
+
+button {
+    background: #d4af37;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>💪 Fitness Hub</h1>
-    <p>Select any category below to continue your fitness journey.</p>
-</header>
+<header>🏋️ Workouts</header>
 
-<section class="cards">
+<div class="container">
 
-    <div class="card">
-        <h2>🔴 Push Day</h2>
-        <p>Chest • Shoulders • Triceps</p>
-        <a href="push.html">
-            <button>Explore Push Day</button>
-        </a>
-    </div>
+<div class="card"><h3>Push Day</h3><button onclick="location.href='push.html'">Explore</button></div>
+<div class="card"><h3>Pull Day</h3><button onclick="location.href='pull.html'">Explore</button></div>
+<div class="card"><h3>Leg Day</h3><button onclick="location.href='legs.html'">Explore</button></div>
+<div class="card"><h3>Weight Gain</h3><button onclick="location.href='weightgain.html'">Explore</button></div>
+<div class="card"><h3>Weight Loss</h3><button onclick="location.href='weightloss.html'">Explore</button></div>
+<div class="card"><h3>BMI</h3><button onclick="location.href='bmi.html'">Explore</button></div>
+<div class="card"><h3>Calories</h3><button onclick="location.href='calorie.html'">Explore</button></div>
+<div class="card"><h3>Progress</h3><button onclick="location.href='progress.html'">Explore</button></div>
+<div class="card"><h3>Timer</h3><button onclick="location.href='timer.html'">Explore</button></div>
 
-    <div class="card">
-        <h2>🔵 Pull Day</h2>
-        <p>Back • Biceps</p>
-        <a href="pull.html">
-            <button>Explore Pull Day</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>🟢 Leg Day</h2>
-        <p>Quads • Hamstrings • Calves</p>
-        <a href="legs.html">
-            <button>Explore Leg Day</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>🍽 Bulking Diet</h2>
-        <p>Healthy Vegetarian Muscle Gain Diet</p>
-        <a href="diet.html">
-            <button>Explore Bulking Diet</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>⚖️ Weight Loss</h2>
-        <p>Workout & Diet Plan for Fat Loss</p>
-        <a href="weightloss.html">
-            <button>Explore Weight Loss</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>📊 BMI Calculator</h2>
-        <p>Calculate your Body Mass Index</p>
-        <a href="bmi.html">
-            <button>Open BMI Calculator</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>🔥 Calorie Calculator</h2>
-        <p>Know your daily calorie needs</p>
-        <a href="calorie.html">
-            <button>Open Calorie Calculator</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>⏱ Workout Timer</h2>
-        <p>Track your workout and rest time</p>
-        <a href="timer.html">
-            <button>Open Workout Timer</button>
-        </a>
-    </div>
-
-    <div class="card">
-        <h2>📈 Progress Tracker</h2>
-        <p>Track your body weight and fitness progress</p>
-        <a href="progress.html">
-            <button>Open Progress Tracker</button>
-        </a>
-    </div>
-
-</section>
-
-<br><br>
-
-<a href="index.html">
-    <button>⬅ Back to Home</button>
-</a>
-
-<br><br>
+</div>
 
 </body>
 </html>
