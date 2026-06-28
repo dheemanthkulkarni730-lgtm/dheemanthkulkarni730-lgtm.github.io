@@ -1,1 +1,19 @@
-
+body {
+  background: #101820
+  color: white;
+  font-family:Arial,Sans-serif
+  text-align: center;
+}
+h1{
+  color:gold;
+}
+button{
+  background: orange;
+  color: purple;
+  padding:12px 24px;
+  border-radius: 10px;
+  cursor:pointer;
+}
+button:hover{
+  background:red;
+}
