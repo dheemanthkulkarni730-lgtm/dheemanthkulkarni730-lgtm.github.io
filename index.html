@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Fitness Dashboard</title>
+<title>Dheemanth Fitness World</title>
 
 <style>
 body {
@@ -12,25 +12,14 @@ body {
     color: white;
 }
 
-/* TOP NAV */
-nav {
+/* HEADER */
+header {
+    text-align: center;
+    padding: 30px;
     background: #1e293b;
-    padding: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
 }
 
-nav button {
-    background: #38bdf8;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-/* GRID DASHBOARD */
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -38,7 +27,7 @@ nav button {
     padding: 20px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
     background: #1e293b;
     padding: 15px;
@@ -51,160 +40,77 @@ nav button {
     transform: scale(1.05);
 }
 
-/* SECTIONS */
-section {
-    display: none;
-    padding: 20px;
-}
-
-.active {
-    display: block;
-}
-
-button.small {
-    margin-top: 10px;
-    background: #22c55e;
+/* BUTTON */
+button {
+    background: #38bdf8;
     border: none;
-    padding: 8px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #0ea5e9;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<button onclick="show('home')">Home</button>
-<button onclick="show('dashboard')">Dashboard</button>
-</nav>
-
-<!-- HOME -->
-<section id="home" class="active">
-<h1>🏋️ Fitness App</h1>
-<p>All workouts, diet & tools in one place</p>
-</section>
-
-<!-- DASHBOARD -->
-<section id="dashboard">
+<header>
+<h1>🏋️ Dheemanth's Fitness World</h1>
+<p>Choose your workout & tools</p>
+</header>
 
 <div class="grid">
 
-<!-- PUSH -->
 <div class="card">
 <h3>🔥 Push Day</h3>
-<p>Chest, Shoulder, Triceps</p>
-<button class="small" onclick="show('push')">Open</button>
+<button onclick="location.href='push.html'">Explore</button>
 </div>
 
-<!-- PULL -->
 <div class="card">
 <h3>💪 Pull Day</h3>
-<p>Back, Biceps</p>
-<button class="small" onclick="show('pull')">Open</button>
+<button onclick="location.href='pull.html'">Explore</button>
 </div>
 
-<!-- LEGS -->
 <div class="card">
 <h3>🦵 Leg Day</h3>
-<p>Quads, Hamstrings, Calves</p>
-<button class="small" onclick="show('legs')">Open</button>
+<button onclick="location.href='leg.html'">Explore</button>
 </div>
 
-<!-- WEIGHT GAIN -->
 <div class="card">
 <h3>🍚 Weight Gain</h3>
-<p>Bulking diet plan</p>
-<button class="small" onclick="show('gain')">Open</button>
+<button onclick="location.href='weightgain.html'">Explore</button>
 </div>
 
-<!-- WEIGHT LOSS -->
 <div class="card">
 <h3>🥗 Weight Loss</h3>
-<p>Fat loss diet plan</p>
-<button class="small" onclick="show('loss')">Open</button>
+<button onclick="location.href='weightloss.html'">Explore</button>
 </div>
 
-<!-- BMI -->
 <div class="card">
-<h3>📊 BMI</h3>
-<p>Body Mass Index</p>
-<button class="small" onclick="show('bmi')">Open</button>
+<h3>📊 BMI Calculator</h3>
+<button onclick="location.href='bmi.html'">Explore</button>
 </div>
 
-<!-- CALORIES -->
 <div class="card">
 <h3>🔥 Calories</h3>
-<p>Daily calorie tracker</p>
-<button class="small" onclick="show('calorie')">Open</button>
+<button onclick="location.href='calorie.html'">Explore</button>
 </div>
 
-<!-- TIMER -->
+<div class="card">
+<h3>📈 Progress</h3>
+<button onclick="location.href='progress.html'">Explore</button>
+</div>
+
 <div class="card">
 <h3>⏱ Timer</h3>
-<p>Workout timer</p>
-<button class="small" onclick="show('timer')">Open</button>
+<button onclick="location.href='timer.html'">Explore</button>
 </div>
 
 </div>
-</section>
-
-<!-- PUSH -->
-<section id="push">
-<h2>🔥 Push Day</h2>
-<p>Bench Press, Shoulder Press, Triceps Dips</p>
-</section>
-
-<!-- PULL -->
-<section id="pull">
-<h2>💪 Pull Day</h2>
-<p>Pull Ups, Rows, Biceps Curls</p>
-</section>
-
-<!-- LEGS -->
-<section id="legs">
-<h2>🦵 Leg Day</h2>
-<p>Squats, Lunges, Leg Press, Calf Raises</p>
-</section>
-
-<!-- WEIGHT GAIN -->
-<section id="gain">
-<h2>🍚 Weight Gain Diet</h2>
-<p>Milk, Banana, Rice, Paneer, Nuts, Peanut Butter</p>
-</section>
-
-<!-- WEIGHT LOSS -->
-<section id="loss">
-<h2>🥗 Weight Loss Diet</h2>
-<p>Salad, Oats, Fruits, Protein foods</p>
-</section>
-
-<!-- BMI -->
-<section id="bmi">
-<h2>📊 BMI Calculator</h2>
-<p>Weight / Height²</p>
-</section>
-
-<!-- CALORIES -->
-<section id="calorie">
-<h2>🔥 Calories</h2>
-<p>Based on age, weight, activity</p>
-</section>
-
-<!-- TIMER -->
-<section id="timer">
-<h2>⏱ Workout Timer</h2>
-<p>Start your workout timing</p>
-</section>
-
-<script>
-
-function show(id){
-    document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-    document.getElementById(id).classList.add("active");
-}
-
-</script>
 
 </body>
 </html>
