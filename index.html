@@ -12,8 +12,13 @@ html {
 body {
     margin: 0;
     font-family: Arial;
-    background: black;
-    color: white;
+    background: #000;
+    color: #f5f5f5;
+}
+
+/* GOLD ACCENT */
+:root {
+    --gold: #d4af37;
 }
 
 /* HERO */
@@ -27,47 +32,45 @@ body {
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 42px;
+    color: var(--gold);
 }
 
-/* BUTTON */
+/* BUTTON (GOLD STYLE LIKE FIRST THEME) */
 button {
-    background: white;
+    background: var(--gold);
     color: black;
     border: none;
-    padding: 12px 18px;
-    border-radius: 25px;
+    padding: 12px 22px;
+    border-radius: 30px;
     cursor: pointer;
     margin-top: 15px;
     font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 /* SECTIONS */
 section {
-    padding: 50px 20px;
+    min-height: 100vh;
+    padding: 80px 20px;
 }
 
-/* CARDS */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
 }
 
-.card {
-    background: #111;
-    padding: 15px;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid #333;
-}
-
-/* MUSIC */
-.music {
-    background: #111;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 15px;
+/* OPTIONAL GOLD LINE */
+.line {
+    width: 80px;
+    height: 3px;
+    background: var(--gold);
+    margin: 10px auto;
 }
 </style>
 </head>
@@ -77,79 +80,41 @@ section {
 <!-- HOME -->
 <div class="hero">
 <h1>🏋️ Welcome to Dheemanth's World</h1>
-<p>Your fitness journey starts here</p>
+<div class="line"></div>
 
 <button onclick="document.getElementById('workouts').scrollIntoView({behavior:'smooth'})">
 Explore
 </button>
 </div>
 
-<!-- WORKOUT SECTION -->
+<!-- WORKOUTS -->
 <section id="workouts">
+<div class="container">
 
-<h2>🔥 Workouts</h2>
+<h2></h2>
 
-<div class="grid">
+<!-- YOU WILL ADD PUSH / PULL / LEGS LATER -->
 
-<div class="card">
-<h3>Push Day</h3>
-<p>Chest, Triceps, Shoulder</p>
-</div>
-
-<div class="card">
-<h3>Pull Day</h3>
-<p>Back, Biceps</p>
-</div>
-
-<div class="card">
-<h3>Leg Day</h3>
-<p>Quads, Hamstrings</p>
-</div>
-
-<div class="card">
-<h3>Weight Gain</h3>
-<p>High calorie diet</p>
-</div>
-
-<div class="card">
-<h3>Weight Loss</h3>
-<p>Fat loss diet</p>
-</div>
-
-<div class="card">
-<h3>BMI</h3>
-<p>Body index calculator</p>
-</div>
-
-<div class="card">
-<h3>Calories</h3>
-<p>Daily intake tracker</p>
-</div>
-
-<div class="card">
-<h3>Timer</h3>
-<p>Workout timer</p>
-</div>
+<button onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})">
+Explore Music
+</button>
 
 </div>
-
 </section>
 
-<!-- MUSIC SECTION -->
+<!-- MUSIC -->
 <section id="music">
+<div class="container">
 
-<h2>🎵 Music</h2>
+<h2></h2>
 
-<div class="music">
-<p>🎧 Play workout playlist</p>
+<!-- YOU WILL ADD RAAGS / TAALS LATER -->
 
-<audio controls>
-<source src="music.mp3" type="audio/mpeg">
-Your browser does not support audio.
-</audio>
+<button onclick="window.scrollTo({top:0, behavior:'smooth'})">
+Back to Home
+</button>
 
 </div>
-
 </section>
 
 </body>
