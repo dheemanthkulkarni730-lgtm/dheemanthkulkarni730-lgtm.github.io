@@ -5,9 +5,7 @@
 <title>Dheemanth's World</title>
 
 <style>
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
     margin: 0;
@@ -16,7 +14,6 @@ body {
     color: white;
 }
 
-/* HERO */
 .hero {
     height: 100vh;
     display: flex;
@@ -29,14 +26,7 @@ body {
 h1 {
     font-size: 60px;
     color: #d4af37;
-    text-shadow: 0 0 25px rgba(212,175,55,0.6);
-    animation: fadeDown 1s ease;
-}
-
-/* SCROLL ANIMATION */
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-30px); }
-    to { opacity: 1; transform: translateY(0); }
+    text-shadow: 0 0 20px rgba(212,175,55,0.6);
 }
 
 /* BUTTON */
@@ -48,29 +38,8 @@ button {
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
-    position: relative;
-    overflow: hidden;
+    margin-top: 10px;
     transition: 0.3s;
-}
-
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(212,175,55,0.5),
-        transparent
-    );
-    transition: 0.5s;
-}
-
-button:hover::before {
-    left: 100%;
 }
 
 button:hover {
@@ -78,35 +47,25 @@ button:hover {
     box-shadow: 0 0 20px rgba(212,175,55,0.5);
 }
 
-/* SECTIONS */
-section {
-    min-height: 100vh;
-    padding: 80px 20px;
-}
-
-/* CARDS CONTAINER */
-.container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-
-/* PREMIUM CARD */
+/* CARD */
 .card {
     background: #111;
     border: 1px solid #333;
     padding: 25px;
     border-radius: 15px;
-    width: 85%;
+    width: 80%;
     max-width: 600px;
+    margin: auto;
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: 0.3s;
 }
 
-/* SIDE GOLD LIGHT */
+.card h2 {
+    color: #d4af37;
+}
+
+/* GLOW EFFECT */
 .card::before {
     content: "";
     position: absolute;
@@ -120,77 +79,51 @@ section {
         rgba(212,175,55,0.2),
         transparent
     );
-    transition: 0.6s;
+    transition: 0.5s;
 }
 
 .card:hover::before {
     left: 100%;
-}
-
-/* GLOW EFFECT */
-.card:hover {
-    transform: scale(1.05);
-    border-color: #d4af37;
-    box-shadow: 0 0 25px rgba(212,175,55,0.4);
-}
-
-.card h2 {
-    color: #d4af37;
-}
-
-/* SCROLL BUTTON STYLE */
-.scroll-btn {
-    margin-top: 15px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<!-- HOME -->
 <div class="hero">
 <h1>🏋️ Welcome to Dheemanth's World</h1>
 
-<button onclick="document.getElementById('workout').scrollIntoView({behavior:'smooth'})">
+<button onclick="document.getElementById('section1').scrollIntoView({behavior:'smooth'})">
 Explore
 </button>
 </div>
 
-<!-- WORKOUT SECTION -->
-<section id="workout">
-
-<div class="container">
+<!-- SECTION -->
+<div id="section1" style="padding:80px 20px;">
 
 <div class="card">
-<h2>🏋️ Workouts</h2>
+<h2>🔥 Workouts</h2>
 <p>Push • Pull • Legs • Weight Gain • Weight Loss</p>
 
-<button onclick="document.getElementById('music').scrollIntoView({behavior:'smooth'})">
+<!-- THIS IS THE REAL FIX -->
+<button onclick="location.href='workout.html'">
 Explore Workouts
 </button>
 </div>
 
-</div>
-
-</section>
-
-<!-- MUSIC SECTION -->
-<section id="music">
-
-<div class="container">
+<br><br>
 
 <div class="card">
 <h2>🎵 Music</h2>
-<p>Raags • Taals • Hindustani Classical</p>
+<p>Raags • Taals • Classical Music</p>
 
-<button onclick="window.scrollTo({top:0, behavior:'smooth'})">
-Back to Home
+<button onclick="location.href='music.html'">
+Explore Music
 </button>
 </div>
 
 </div>
-
-</section>
 
 </body>
 </html>
